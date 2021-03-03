@@ -1,4 +1,4 @@
-#Intro
+# Intro
 
 <p>Managing a simple DevOps process is itself a challenge for enterprises, especially when you consider all the moving parts of this process. It could be simple enough for organizations which have simple needs, and it could be as complex with hundreds of moving parts. 
 The complexity of moving from a fully manual design, development, and hosting process to an agile, fully cloud-native and automated process can be time consuming, laborious and intensive process even with expert guidance internally. 
@@ -8,7 +8,7 @@ When developers have the flexibility to choose the type of cloud, cloud environm
 At Syren, we wish to showcase our capabilities in implementing DevOps for applications designed to work in multi-cloud environments, and that too in a wide variety of application architecture styles.
 We shall over the next few weeks showcase one application at a time built on a different cloud, a different language and different tools used for DevOps.</p>
 
-#About this code
+# About this code
 
 <p>This is a simple Two-Tier Architecture application developed in .NET Core, a MVC architecture, an SQL server DB as backend with entity framework.
 This application is designed to have all CRUD oprations on an Employee Table. </p>
