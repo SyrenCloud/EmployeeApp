@@ -95,4 +95,4 @@ Whenever new code is pushed to the master branch the build pipeline will be trig
    
 <p><a target="_blank" rel="noopener noreferrer" href="/images/release_pipeline.PNG"><img src="/images/release_pipeline.PNG" alt="Architecture diagram" style="max-width:100%;"></a></p>
 
-<p>While this is a simple example of using DevOps on a simple application, we shall at later dates provide examples of using DevOps in much more complex scenarios.<\p>
+<p>While this is a simple example of using DevOps on a simple application, we shall at later dates provide examples of using DevOps in much more complex scenarios.</p>
