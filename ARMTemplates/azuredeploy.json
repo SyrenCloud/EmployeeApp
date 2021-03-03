@@ -1,0 +1,191 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "employeewebappname": {
+      "type": "string",
+      "minLength": 1
+    },
+    "employeeeebappskuname": {
+      "type": "string",
+      "defaultValue": "F1",
+      "allowedValues": [
+        "F1",
+        "D1",
+        "B1",
+        "B2",
+        "B3",
+        "S1",
+        "S2",
+        "S3",
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "metadata": {
+        "description": "Describes plan's pricing tier and capacity. Check details at https://azure.microsoft.com/en-us/pricing/details/app-service/"
+      }
+    },
+    "employeesqlservername": {
+      "type": "string",
+      "minLength": 1
+    },
+      "employeesqlserverAdminLogin": {
+        "type": "string",
+        "minLength": 1
+      },
+      "employeesqlserverAdminLoginPassword": {
+        "type": "securestring"
+      },
+      "employeesqldbName": {
+        "type": "string",
+        "minLength": 1
+      },
+      "employeesqldbCollation": {
+        "type": "string",
+        "minLength": 1,
+        "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+      },
+      "employeesqldbEdition": {
+        "type": "string",
+        "defaultValue": "Basic",
+        "allowedValues": [
+          "Basic",
+          "Standard",
+          "Premium"
+        ]
+      },
+      "employeesqldbRequestedServiceObjectiveName": {
+        "type": "string",
+        "defaultValue": "Basic",
+        "allowedValues": [
+          "Basic",
+          "S0",
+          "S1",
+          "S2",
+          "P1",
+          "P2",
+          "P3"
+        ],
+        "metadata": {
+          "description": "Describes the performance level for Edition"
+        }
+      }
+    },
+  "variables": {},
+  "resources": [
+    {
+      "name": "[parameters('employeewebappname')]",
+      "type": "Microsoft.Web/serverfarms",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "sku": {
+        "name": "[parameters('employeeeebappskuname')]"
+      },
+      "dependsOn": [],
+      "tags": {
+        "displayName": "EmployeeWebApp"
+      },
+      "properties": {
+        "name": "[parameters('employeewebappname')]",
+        "numberOfWorkers": 1
+      }
+    },
+    {
+      "name": "[parameters('employeesqlservername')]",
+      "type": "Microsoft.Sql/servers",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2014-04-01-preview",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "employeesqlserver"
+      },
+      "properties": {
+        "administratorLogin": "[parameters('employeesqlserverAdminLogin')]",
+        "administratorLoginPassword": "[parameters('employeesqlserverAdminLoginPassword')]"
+      },
+      "resources": [
+        {
+          "name": "AllowAllWindowsAzureIps",
+          "type": "firewallrules",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', parameters('employeesqlservername'))]"
+          ],
+          "properties": {
+            "startIpAddress": "0.0.0.0",
+            "endIpAddress": "0.0.0.0"
+          }
+        },
+        {
+          "name": "[parameters('employeesqldbName')]",
+          "type": "databases",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', parameters('employeesqlservername'))]"
+          ],
+          "tags": {
+            "displayName": "employeesqldb"
+          },
+          "properties": {
+            "collation": "[parameters('employeesqldbCollation')]",
+            "edition": "[parameters('employeesqldbEdition')]",
+            "maxSizeBytes": "1073741824",
+            "requestedServiceObjectiveName": "[parameters('employeesqldbRequestedServiceObjectiveName')]"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[parameters('employeewebappname')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('employeewebappname'))]"
+      ],
+      "tags": {
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('EmployeeWebAppName')))]": "Resource",
+        "displayName": "EmployeeWebApp"
+      },
+      "properties": {
+        "name": "[parameters('employeewebappname')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('employeewebappname'))]"
+      },
+      "resources": [
+        {
+          "name": "appsettings",
+          "type": "config",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/sites', parameters('employeewebappname'))]"
+          ],
+          "tags": {
+            "displayName": "EmployeeAppSettings"
+          },
+          "properties": {
+            "AppName": "[parameters('employeewebappname')]"
+          }
+        },
+        {
+          "apiVersion": "2015-08-01",
+          "name": "connectionstrings",
+          "type": "config",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/sites', parameters('employeewebappname'))]"
+          ],
+          "properties": {
+            "defaultConnection": {
+              "value": "[concat('Data Source=',reference(parameters('employeesqlservername')).fullyQualifiedDomainName,';Initial Catalog=',parameters('employeesqldbName'),';User ID=',parameters('employeesqlserverAdminLogin'),';Password=',parameters('employeesqlserverAdminLoginPassword'))]",
+              "type": "SQLServer"
+            }
+          }
+        }
+      ]
+    }
+    ],
+  "outputs": {}
+}

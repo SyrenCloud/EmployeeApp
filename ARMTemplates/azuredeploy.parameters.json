@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "employeewebappname": {
+          "value": "#arm_employeewebappname#" 
+      },
+      "employeeeebappskuname": {
+          "value": "#arm_employeeeebappskuname#"
+      },
+      "employeesqlservername": {
+          "value": "#arm_employeesqlservername#"
+      },
+      "employeesqlserverAdminLogin": {
+          "value": "#arm_employeesqlserverAdminLogin#" 
+      },
+      "employeesqlserverAdminLoginPassword": {
+          "value": "#arm_employeesqlserverAdminLoginPassword#" 
+      },
+      "employeesqldbName": {
+          "value": "#arm_employeesqldbName#" 
+      },
+      "employeesqldbCollation": {
+          "value": "#arm_employeesqldbCollation#"
+      },
+      "employeesqldbEdition": {
+          "value": "#arm_employeesqldbEdition#"
+      },
+      "employeesqldbRequestedServiceObjectiveName": {
+          "value": "#arm_employeesqldbRequestedServiceObjectiveName#"
+      }
+  }
+}
