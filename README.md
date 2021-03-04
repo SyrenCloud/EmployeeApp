@@ -1,12 +1,18 @@
 # Intro
 
-<p>Managing a simple DevOps process is itself a challenge for enterprises, especially when you consider all the moving parts of this process. It could be simple enough for organizations which have simple needs, and it could be as complex with hundreds of moving parts. 
-The complexity of moving from a fully manual design, development, and hosting process to an agile, fully cloud-native and automated process can be time consuming, laborious and intensive process even with expert guidance internally. 
-This one-time implementation of DevOps into your routines and processes can lead to better idea-to-feature implementation, higher efficiencies and better RoI than your older process.
-When you are implementing a DevOps process, either in a greenfield project, or improving your current process, it is essential to build resiliency, avoid cloud lock-in, agility, flexibility, scalability and for performance during this juncture.
-When developers have the flexibility to choose the type of cloud, cloud environment, pipeline automation tools and languages to build secure applications which perform as planned while ensuring budgets are not exceeded, they build wonderful applications.
-At Syren, we wish to showcase our capabilities in implementing DevOps for applications designed to work in multi-cloud environments, and that too in a wide variety of application architecture styles.
-We shall over the next few weeks showcase one application at a time built on a different cloud, a different language and different tools used for DevOps.</p>
+<p>Managing a simple DevOps process is itself a challenge for enterprises, especially when you consider all the moving parts of this process. It could be simple enough for organizations which have simple needs, and it could be as complex with hundreds of moving parts.</p>
+
+<p>The complexity of moving from a fully manual design, development, and hosting process to an agile, fully cloud-native and automated process can be time consuming, laborious and intensive process even with expert guidance internally. </p>
+
+<p>This one-time implementation of DevOps into your routines and processes can lead to better idea-to-feature implementation, higher efficiencies and better RoI than your older process. </p>
+
+</p> When you are implementing a DevOps process, either in a greenfield project, or improving your current process, it is essential to build resiliency, avoid cloud lock-in, agility, flexibility, scalability and for performance during this juncture.</p>
+
+</p> When developers have the flexibility to choose the type of cloud, cloud environment, pipeline automation tools and languages to build secure applications which perform as planned while ensuring budgets are not exceeded, they build wonderful applications.</p>
+
+<p>At Syren, we wish to showcase our capabilities in implementing DevOps for applications designed to work in multi-cloud environments, and that too in a wide variety of application architecture styles.</p>
+
+<p>We shall over the next few weeks showcase one application at a time built on a different cloud, a different language and different tools used for DevOps.</p>
 
 # About this code
 
