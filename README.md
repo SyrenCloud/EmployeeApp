@@ -102,4 +102,7 @@ Whenever new code is pushed to the master branch the build pipeline will be trig
 # Below attached Image describes the Dev Stage YAML template  
 <p><a target="_blank" rel="noopener noreferrer" href="/images/dev_deplyment_withArm_template.PNG"><img src="/images/dev_deplyment_withArm_template.PNG" alt="Architecture diagram" style="max-width:100%;"></a></p>
 
+Here's a link to the Yaml template for Employee App Deployemnet to DEV, QA and Prod environments 
+<a href="/employeeapp-yaml-stages-with-armtemplate.yml" > YAML Pipeline </a>
+
 <p>While this is a simple example of using DevOps on a simple application, we shall at later dates provide examples of using DevOps in much more complex scenarios.</p>
