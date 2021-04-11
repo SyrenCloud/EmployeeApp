@@ -74,8 +74,8 @@ stages:
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
-        azureResourceManagerConnection: 'Free Trial(8a637732-23bb-4eac-8053-74de19434aab)'
-        subscriptionId: '8a637732-23bb-4eac-8053-74de19434aab'
+        azureResourceManagerConnection: 'Your_azureResourceManagerConnection'
+        subscriptionId: 'Your_subscriptionId'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(arm_employeewebappname)'
         location: 'Canada Central'
@@ -86,13 +86,13 @@ stages:
     - task: AzureRmWebAppDeployment@4
       inputs:
         ConnectionType: 'AzureRM'
-        azureSubscription: 'Free Trial(8a637732-23bb-4eac-8053-74de19434aab)'
+        azureSubscription: 'Your_azureResourceManagerConnection'
         appType: 'webApp'
         WebAppName: '$(arm_employeewebappname)'
         packageForLinux: '$(Pipeline.Workspace)/drop/*.zip'
     - task: SqlAzureDacpacDeployment@1
       inputs:
-        azureSubscription: 'Free Trial(8a637732-23bb-4eac-8053-74de19434aab)'
+        azureSubscription: 'Your_azureResourceManagerConnection'
         AuthenticationType: 'server'
         ServerName: '$(arm_employeesqlservername).database.windows.net'
         DatabaseName: '$(arm_employeesqldbName)'
@@ -134,8 +134,8 @@ stages:
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
-        azureResourceManagerConnection: 'Free Trial(8a637732-23bb-4eac-8053-74de19434aab)'
-        subscriptionId: '8a637732-23bb-4eac-8053-74de19434aab'
+        azureResourceManagerConnection: 'Your_azureResourceManagerConnection'
+        subscriptionId: 'Your_subscriptionId'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(arm_employeewebappname)'
         location: 'Canada Central'
@@ -146,13 +146,13 @@ stages:
     - task: AzureRmWebAppDeployment@4
       inputs:
         ConnectionType: 'AzureRM'
-        azureSubscription: 'Free Trial(8a637732-23bb-4eac-8053-74de19434aab)'
+        azureSubscription: 'Your_azureResourceManagerConnection'
         appType: 'webApp'
         WebAppName: '$(arm_employeewebappname)'
         packageForLinux: '$(Pipeline.Workspace)/drop/*.zip'
     - task: SqlAzureDacpacDeployment@1
       inputs:
-        azureSubscription: 'Free Trial(8a637732-23bb-4eac-8053-74de19434aab)'
+        azureSubscription: 'Your_azureResourceManagerConnection'
         AuthenticationType: 'server'
         ServerName: '$(arm_employeesqlservername).database.windows.net'
         DatabaseName: '$(arm_employeesqldbName)'
@@ -194,8 +194,8 @@ stages:
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
-        azureResourceManagerConnection: 'Free Trial(8a637732-23bb-4eac-8053-74de19434aab)'
-        subscriptionId: '8a637732-23bb-4eac-8053-74de19434aab'
+        azureResourceManagerConnection: 'Your_azureResourceManagerConnection'
+        subscriptionId: 'Your_subscriptionId'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(arm_employeewebappname)'
         location: 'Canada Central'
@@ -206,13 +206,13 @@ stages:
     - task: AzureRmWebAppDeployment@4
       inputs:
         ConnectionType: 'AzureRM'
-        azureSubscription: 'Free Trial(8a637732-23bb-4eac-8053-74de19434aab)'
+        azureSubscription: 'Your_azureResourceManagerConnection'
         appType: 'webApp'
         WebAppName: '$(arm_employeewebappname)'
         packageForLinux: '$(Pipeline.Workspace)/drop/*.zip'
     - task: SqlAzureDacpacDeployment@1
       inputs:
-        azureSubscription: 'Free Trial(8a637732-23bb-4eac-8053-74de19434aab)'
+        azureSubscription: 'Your_azureResourceManagerConnection'
         AuthenticationType: 'server'
         ServerName: '$(arm_employeesqlservername).database.windows.net'
         DatabaseName: '$(arm_employeesqldbName)'
