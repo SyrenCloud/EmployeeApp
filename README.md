@@ -60,7 +60,7 @@ The following services are required and we are using Azure as an example for the
 1. App Service
 2. SQL Server Database. 
 
-<p>We are creating these Service using ARM (Azure Resource Manager) templates in Azure DevOps with CI-CD Pipelines.</p>
+<p>We are creating these Service using ARM (Azure Resource Manager) templates in Azure DevOps with YAML Pipelines.</p>
 <p><a target="_blank" rel="noopener noreferrer" href="/images/armtemplate.PNG"><img src="/images/armtemplate.PNG" alt="ARM Template" style="max-width:100%;"></a></p>
 
 Here's a link to the ARM template
@@ -70,7 +70,7 @@ Here's a link to the ARM template
 
 <p><a target="_blank" rel="noopener noreferrer" href="/images/Azure_pipeline_WorkFlow.PNG"><img src="/images/Azure_pipeline_WorkFlow.PNG" alt="Architecture diagram" style="max-width:100%;"></a></p>
 
-# Build Pipeline with CI 
+# Build Pipeline with YAML
 
 Whenever new code is pushed to the master branch the build pipeline will be triggered 
 
@@ -83,22 +83,23 @@ Whenever new code is pushed to the master branch the build pipeline will be trig
    This Sql Script file contains the database schema for this application
 6. Createthe artifact file in Azure DevOps. This will be used to deploy the application in multiple environments.
 
-<p><a target="_blank" rel="noopener noreferrer" href="/images/build_Pipeline.PNG"><img src="/images/build_Pipeline.PNG" alt="Architecture diagram" style="max-width:100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="/images/build_yml-template.PNG"><img src="/images/build_yml-template.PNG" alt="Architecture diagram" style="max-width:100%;"></a></p>
 
-# Release Pipeline with CD
+# Release Pipeline with YAML
 
 <p>This will contains all stages required such as the Dev, QA and Production. Each stage will have jobs and Tasks.</p>
 
-<p><a target="_blank" rel="noopener noreferrer" href="/images/release_pipeline_flow.png"><img src="/images/release_pipeline_flow.png" alt="Architecture diagram" style="max-width:100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="/images/release_yaml_flow.png"><img src="/images/release_yaml_flow.png" alt="Architecture diagram" style="max-width:100%;"></a></p>
 
-1. We need to configure all the variables as per environment like (Dev, QA and Prod) 
+1. We need to configure all the variables as per environment like in the variable groups (devemp, qaemp and prodemp) 
 2. ARM Template Deployment:
    We are creating the Resources (App Service, SQL Server Database) defined in the ARM template
 3. Azure App Service Deployment:
    We will deploy the App code from the artifact file in Build pipeline to App Service.
 4. Azure SQL Database Deployment:
    We will create all the required database schema for this application
-   
-<p><a target="_blank" rel="noopener noreferrer" href="/images/release_pipeline.PNG"><img src="/images/release_pipeline.PNG" alt="Architecture diagram" style="max-width:100%;"></a></p>
+
+# Below attached Image describes the Dev Stage YAML template  
+<p><a target="_blank" rel="noopener noreferrer" href="/images/dev_deplyment_withArm_template.PNG"><img src="/images/dev_deplyment_withArm_template.PNG" alt="Architecture diagram" style="max-width:100%;"></a></p>
 
 <p>While this is a simple example of using DevOps on a simple application, we shall at later dates provide examples of using DevOps in much more complex scenarios.</p>
