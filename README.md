@@ -89,7 +89,7 @@ Whenever new code is pushed to the master branch the build pipeline will be trig
 
 <p>This will contains all stages required such as the Dev, QA and Production. Each stage will have jobs and Tasks.</p>
 
-<p><a target="_blank" rel="noopener noreferrer" href="/images/release_yaml_flow.png"><img src="/images/release_yaml_flow.png" alt="Architecture diagram" style="max-width:100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="/images/release_yaml_flow.PNG"><img src="/images/release_yaml_flow.PNG" alt="Architecture diagram" style="max-width:100%;"></a></p>
 
 1. We need to configure all the variables as per environment like in the variable groups (devemp, qaemp and prodemp) 
 2. ARM Template Deployment:
